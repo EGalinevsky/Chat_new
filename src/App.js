@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import './styles/index.scss';
-// import { Button } from 'antd';
-import Button from './components/Button';
+import Auth from 'pages/Auth';
 
 function App() {
-  // let we = 1;
   useState;
-  console.log(1);
 
   return (
-    <div className="App">
-      <Button styleName={'btn'}> btn </Button>
+    <div className="wrapper">
+      <Auth/>
     </div>
   );
 }

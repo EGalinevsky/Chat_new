@@ -1,22 +1,21 @@
 import React from 'react';
 import { Button as BaseButton } from 'antd';
 import classNames from 'classnames';
+import s from '../Button/button.module.scss';
 
 interface IButton {
   styleName: string,
   title: string,
 }
 
-const Button = (props: IButton) => {
-  const { styleName } = props;
-  // console.log(styleName);  
+const Button = ({...props}: IButton | any) => {
+  const { styleName } = props as IButton;
   return (
     <>
-      <BaseButton className={classNames('button', styleName)} {...props} />
+      <BaseButton type='primary' className={classNames(s.button__large, styleName)} {...props} />
     </>
   );
 };
-
 
 
 export default Button;
