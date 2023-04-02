@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Block from 'components/Block';
 import { Route } from 'react-router';
 
-interface ILoginForm {
+interface IRegistreForm {
     onFinish: (values: {
         username: string,
         password: string,
@@ -15,13 +15,13 @@ interface ILoginForm {
     onFinishFailed?: (values: any) => void;
 }
 
-const LoginForm = ({ onFinish, onFinishFailed }: ILoginForm) => {
+const RegistreForm = ({ onFinish, onFinishFailed }: IRegistreForm) => {
   return (
     <>
       <div className={style.auth_content}>
         <div className={style.auth_header}>
-          <h2>Sign in</h2>
-          <p>please login to your account</p>
+          <h2>Registration</h2>
+          <p>to enter the chat, you need to register</p>
         </div>
         <Block>
           <Form
@@ -35,9 +35,18 @@ const LoginForm = ({ onFinish, onFinishFailed }: ILoginForm) => {
             autoComplete="off"
           >
             <Form.Item
+              label="E-mail"
+              name="E-mail"
+              rules={[{ required: true, message: 'Please input your E-mail!' }]}
+              hasFeedback
+              validateStatus="success"
+            >
+              <Input id="success" />
+            </Form.Item>
+            <Form.Item
               label="Username"
-              name="username"
-              rules={[{ required: true, message: 'Please input your username!' }]}
+              name="Username"
+              rules={[{ required: true, message: 'Please input your Username!' }]}
               hasFeedback
               validateStatus="success"
             >
@@ -51,15 +60,22 @@ const LoginForm = ({ onFinish, onFinishFailed }: ILoginForm) => {
             >
               <Input.Password />
             </Form.Item>
+            <Form.Item
+              label="Repead password"
+              name="Repead password"
+              rules={[{ required: true, message: 'Please input your repead password!' }]}
+            >
+              <Input.Password />
+            </Form.Item>
 
             <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
             <Button className={style.auth_button} styleName={'btn'} type="primary" htmlType="submit">
-                Sign in
+                Registration
             </Button>
-            <Link className={style.auth_link} to="/register">Registration</Link>
+            <Link className={style.auth_link} to="/">Sign in</Link>
           </Form>
         </Block>
       </div>
@@ -68,4 +84,4 @@ const LoginForm = ({ onFinish, onFinishFailed }: ILoginForm) => {
   );
 };
 
-export default LoginForm;
+export default RegistreForm;
