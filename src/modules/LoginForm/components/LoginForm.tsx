@@ -14,7 +14,7 @@ interface ILoginForm {
     }) => void,
     onFinishFailed?: (values: any) => void;
 }
-
+console.log(12312);
 const LoginForm = ({ onFinish, onFinishFailed }: ILoginForm) => {
   return (
     <>
